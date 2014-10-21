@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    {{! Styles'n'Scripts }}
+    {{!-- <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" /> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/index.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/semantic.css"}}">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/animate.css"}}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div class="ui fixed inverted main menu teabag-top-nav">
+        <div class="ui page grid">
+            <div class="computer only row">
+                <div class="column">
+                    <div class="title item">
+                        <a href="{{@blog.url}}">{{@blog.title}}</a>
+                    </div>
+                    <div class="right menu">
+                        <div class="item">
+                            <a><i class="facebook icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a><i class="twitter icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a><i class="google plus icon"></i></a>
+                        </div>
+                        <div class="item">
+                            <a href="{{@blog.url}}/ghost"><i class="settings icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile tablet only row">
+                <div class="column">
+                    <div class="title item">
+                        {{!-- 로고 margin padding 문제 해결해야 --}}
+                        {{!-- <a href="{{@blog.url}}">{{#if @blog.logo}}<img class="ui avatar image" src="{{@blog.logo}}">{{else}}<i class="lab icon"></i> {{/if}}</a> --}}
+                        <a href="{{@blog.url}}">{{#if @blog.logo}}<i class="lab icon"></i> {{else}}<i class="lab icon"></i> {{/if}}</a>
+                    </div>
+                    <div class="right menu">
+                        <div class="item">
+                            <a><i class="facebook icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a><i class="twitter icon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a><i class="google plus icon"></i></a>
+                        </div>
+                        <div class="item">
+                            <a href="{{@blog.url}}/ghost"><i class="settings icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="animated fadeIn teabag-masthead segment" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+        <div class="ui page grid">
+            <div class="computer tablet only row">
+                <div class="column">
+                    <div class="teabag-site-header">
+                        <h1 class="ui teabag-huge header">
+                            <a href="{{@blog.url}}">{{@blog.title}}</a>
+                            {{!-- <a href="{{@blog.url}}">{{@blog.title}}</a> --}}
+                            <div class="sub header">
+                                <h2>
+                                    {{#if @blog.description}}{{@blog.description}}{{else}}by semantic-ui{{/if}}
+                                </h2>
+                            </div>
+                        </h1>                    
+                    </div>
+                </div>
+            </div>
+            <div class="mobile only row">
+                <div class="column">
+                    <div class="teabag-site-header">
+                        <h1 class="ui teabag-huge header">
+                            <a href="{{@blog.url}}">Teabag Theme</a>
+                            {{!-- <a href="{{@blog.url}}">{{@blog.title}}</a> --}}
+                        </h1>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {{!-- //Globar Header and Sidebar --}}
+
+    {{! Everything else gets inserted here }}
+    {{{body}}}
+    
+    <footer class="teabag-site-footer">
+        <div class="ui page grid">
+            <div class="column center aligned">
+                {{!-- <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a> --}}
+                <div class="inner">
+                     <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
+                     <section class="poweredby">Powered by <a class="icon-ghost" href="https://ghost.org">Ghost</a></section>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <!--<script type="text/javascript" src="{{asset "js/index.js"}}"></script> -->
+    <script type="text/javascript" src="{{asset "js/semantic.js"}}"></script>
+     <script>
+        $(document).ready(function(){
+            $('.teabag-content-img').has('img').find('img').addClass('ui large image').css({margin:'auto'});
+            $('.teabag-post-img').has('img').find('img').addClass('ui huge image').css({margin:'auto'});
+        });
+    </script>
+</body>
+</html>

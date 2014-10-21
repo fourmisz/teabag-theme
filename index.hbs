@@ -1,0 +1,72 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! The big featured header on the homepage, with the site logo and description }}
+
+<main class="animated fadeIn teabag-content" role="main">
+    <div class="ui page grid segment">
+    {{#foreach posts}}
+        <div class="row">
+            <div class="column">
+                <article class="{{post_class}}">
+                    <header class="{{post_header}} teabag-post-header">
+                        <span class="teabag-post-meta">
+                            <div class="teabag-area time">
+                                <div class="ui red horizontal label">Published</div>
+                                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}
+                                </time>
+                            </div>
+                            <div class="teabag-area tag">
+                            {{#if tags}}
+                                <div class="ui purple horizontal label">Tags</div>
+                                {{tags separator=" &bullet; "}}
+                            {{/if}}
+                            </div>
+                        </span>
+                        <h2 class="ui header"><a href="{{url}}">{{{title}}}</a></h2>
+                    </header>
+                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="teabag-content-img column">
+                {{content words="0"}}
+            </div>
+        </div>
+        <div class="computer tablet only row">
+            <div class="column">
+                <p>{{excerpt characters="600"}}&hellip;</p>
+            </div>
+        </div>
+        <div class="mobile only row">
+            <div class="column">
+                <p>{{excerpt characters="100"}}&hellip;</p>
+            </div>
+        </div>
+        <div class="computer only row">
+            <div class="center aligned column">
+                <div class="ui blue button teabag-readmore">
+                    <a href="{{url}}">
+                        <i class="coffee icon"></i>Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="tablet mobile only row">
+            <div class="column">
+                <div class="fluid ui blue button teabag-readmore">
+                    <a href="{{url}}">
+                        <i class="coffee icon"></i>Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ui horizontal icon divider">
+            <i class="circular heart icon"></i>
+        </div>
+        {{/foreach}}
+    </div>
+    {{pagination}}   
+</main>

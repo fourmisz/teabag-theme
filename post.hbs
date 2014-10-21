@@ -1,0 +1,90 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<main class="animated fadeIn teabag-content" role="main">
+    <div class="ui page grid">
+        <div class="column">
+            <article class="teabag-post {{post_class}}">
+
+                {{! Each post has the blog logo at the top, with a link back to the home page }}
+                {{!-- 나중에 수정해야함!! --}}
+                {{!-- <header class="post-header">
+                    <a class="blog-logo" href="{{@blog.url}}">
+                        {{#if @blog.logo}}
+                            <img src="{{@blog.logo}}" alt="Blog Logo" />
+                        {{else}}
+                            <span class="blog-title">{{@blog.title}}</span>
+                        {{/if}}
+                    </a>
+                </header> --}}
+                {{!-- //나중에 수정해야함!! --}}
+
+                {{! Everything inside the #post tags pulls data from the post }}
+                {{#post}}
+
+                    <span class="teabag-post-meta">
+                        <div class="teabag-area time">
+                            <div class="ui red horizontal label">Published</div>
+                            <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}
+                            </time>
+                        </div>
+                        <div class="teabag-area tag">
+                        {{#if tags}}
+                            <div class="ui purple horizontal label">Tags</div>
+                            {{tags separator=" &bullet; "}}
+                        {{/if}}
+                        </div>
+                    </span>
+
+                    <h2 class="ui header">{{{title}}}</h2>
+                    <span>
+                        Share This Article on&nbsp;
+                        <a class="" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            {{!-- <span class="hidden">Twitter</span> --}}
+                            <i class="circular twitter icon"></i>
+                        </a>
+                        <a class="" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            {{!-- <span class="hidden">Facebook</span> --}}
+                            <i class="circular facebook icon"></i>
+                        </a>
+                        <a class="" href="https://plus.google.com/share?url={{url absolute="true"}}"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            {{!-- <span class="hidden">Google+</span> --}}
+                            <i class="circular google plus icon"></i>
+                        </a>
+                    </span>
+
+                    <div class="ui horizontal icon divider">
+                        <i class="circular angle down icon"></i>
+                    </div>
+
+                    <section class="teabag-post-img">
+                        {{content}}
+                    </section>
+
+                    <footer class="post-footer teabag-post-footer">
+                        <div class="ui grid">
+                            <div class="row">
+                                <div class="column">
+                                    <section class="author ui segment">
+                                        {{#if author.image}}<img class="ui avatar image" src="{{author.image}}">{{/if}}<strong>{{author.name}}</strong>
+                                        <p>{{author.bio}}&nbsp;{{#if author.location}}I live in {{author.location}}{{/if}}&nbsp;{{#if author.website}}My website is {{author.website}}&nbsp;Visit my website!!{{/if}}</p>
+                                    </section>
+                                </div>
+                            </div>
+                            {{!-- <div class="ui horizontal icon divider">
+                                <i class="circular angle down icon"></i>
+                            </div> --}}
+                            {{!-- Comments by Disqus --}}
+                            {{>comments}}
+                        </div>
+                    </footer>
+                {{/post}}
+            </article>
+        </div>
+    </div>
+</main>

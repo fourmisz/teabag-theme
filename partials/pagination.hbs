@@ -1,0 +1,34 @@
+<nav class="pagination" role="pagination">
+	<div class="ui page grid">
+		<div class="mobile only row">
+			<div class="column">
+				    {{#if prev}}
+				    	<div class="ui icon black button floated">
+				    	  <i class="left arrow icon"></i>
+				    	</div>
+				    {{/if}}
+				    {{#if next}}
+					    <div class="ui icon black button right floated">
+					      <i class="right arrow icon"></i>
+					    </div>	        
+				    {{/if}}
+			</div>
+		</div>
+		<div class="computer tablet only row">
+			<div class="column">
+				    {{#if prev}}
+				        <div class="ui labeled icon black button floated">
+			          		<i class="left arrow icon"></i>
+				          	<a class="newer-posts" href="{{pageUrl prev}}">Newer Posts</a>
+				        </div>
+				    {{/if}}
+				    {{#if next}}        
+				        <div class="ui right labeled icon black button left floated">
+				          	<i class="right arrow icon"></i>
+				          	<a class="older-posts" href="{{pageUrl next}}">Order Posts</a>
+				        </div>
+				    {{/if}}
+			</div>
+		</div>
+	</div>
+</nav>

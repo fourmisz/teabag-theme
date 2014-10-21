@@ -1,0 +1,324 @@
+ /*==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+/*
+
+    1.  Global
+    2.  default.hbs
+    3.  index.hbs
+    4.  post.hbs
+    5.  pagination.hbs
+    6.  comments.hbs
+    7.  Responsive(media quaries)
+
+ */
+
+/*******************************
+1.  Global
+*******************************/
+
+html,
+body {
+  font-size: 15px;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+
+  margin: 0px;
+  padding: 0px;
+  color: #555555;
+  min-width: 320px;
+}
+/*body > .content  {
+  background: #FCFCFC url(../images/bg.jpg) repeat;
+}*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  /*font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;*/
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif/*rtl:prepend:"Droid Arabic Kufi","Droid Sans", */;
+}
+
+/*
+p,
+ul,
+.ui.grid,
+li {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size-adjust: none;
+}*/
+
+
+ul.list {
+  list-style-type: disc;
+}
+ul.list li {
+  list-style-position: outside;
+}
+
+
+/* text and headers */
+h1 {
+  margin: 0px 0px 20px;
+  padding: 50px 0px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+h4 + p {
+  margin: 0px 0px 20px;
+}
+pre {
+  background-color: #F0F0F0;
+}
+/*rtl:ignore*/
+pre.console {
+  background-color: transparent;
+  line-height: 1.6;
+  font-family:  'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+  height: 300px;
+  overflow: auto;
+  direction:ltr;
+}
+code {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  font-family: Courier New;
+  font-size: 14px;
+  margin: 0.25em;
+  padding: 0.125em 0.5em;
+  vertical-align: middle;
+}
+pre code {
+  border: none;
+  padding: 0px;
+}
+table pre,
+table code {
+  margin: 0px !important;
+  padding: 0px;
+  background-color: transparent;
+}
+p {
+  margin: 1em 0em;
+  line-height: 180%; 
+  color:#555555;
+}
+p:first-child {
+  margin-top: 0em;
+}
+p:last-child {
+  margin-bottom: 0em;
+}
+/* links */
+a {
+  color: #555555;
+  text-decoration: none;
+}
+a:hover {
+  color: #00BAFF;
+}
+
+/*******************************
+2.  default.hbs
+*******************************/
+
+/* Fixed Top Menu */
+.teabag-top-nav.main.menu {
+	min-width: 320px;
+	z-index: 900;
+	opacity: 0.8;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-transition: margin 0.3s ease;
+	-moz-transition: margin 0.3s ease;
+	-o-transition: margin 0.3s ease;
+	-ms-transition: margin 0.3s ease;
+	transition: margin 0.3s ease;
+}
+
+
+
+.teabag-top-nav .right.menu{
+	float: right;
+}
+
+.teabag-top-nav .ui.page.grid .column{
+	padding:0;
+}
+
+/*  */
+.teabag-masthead {
+  position: relative;
+  overflow: hidden;
+  background-color: #00B5AD;
+  text-align: center;
+  margin-top: 0px;
+  padding: 40px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0px;
+  border-bottom: none;
+  -webkit-animation-duration: 3s;
+
+  background-position: center top;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% auto;
+          background-size: 100% auto;
+}
+
+.teabag-masthead .teabag-site-header .teabag-huge a{
+	color:#FFFFFF;
+}
+
+.teabag-masthead .teabag-site-header .teabag-huge{
+	font-size: 4em;
+	margin-top:0.2em;
+}
+
+.teabag-masthead .teabag-site-header  .header  h2{
+	color:#FFFFFF;
+}
+
+.teabag-masthead .teabag-site-header .sub h2{
+	font-weight: lighter;
+}
+
+.teabag-masthead .teabag-site-header .right.floated{
+	margin-right:3em;
+}
+
+.teabag-site-footer section{
+	font-size: 1.5em;
+}
+
+/*******************************
+3.  index.hbs
+*******************************/
+
+.teabag-content{
+	margin-top: 20px;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-duration: 3s;	
+}
+
+.teabag-post-header h2 a{
+	font-size: 2rem;
+}
+
+.teabag-post-header h2 a:hover{
+	color:#22313F;
+}
+
+.teabag-readmore a{
+	color: #FFFFFF;
+}
+
+.teabag-area{
+	display:inline;
+	margin-right: 20px
+}
+
+/*******************************
+4.  post.hbs
+*******************************/
+
+.teabag-post-footer{
+	margin-top: 40px;
+}
+
+
+/*******************************
+5.  pagination.hbs
+*******************************/
+
+.pagination a{
+	color: #FFFFFF;
+}
+
+/*******************************
+6.  comments.hbs
+*******************************/
+
+
+
+/*******************************
+7. Reponsive
+*******************************/
+
+/* Wide */
+@media screen and (max-width:1280px){
+	
+}
+/*Desktop*/
+@media screen and (max-width:1024px){
+
+}
+
+@media screen and (min-width: 768px){
+
+}
+
+/* Tablet */
+@media screen and (max-width: 800px){
+	.teabag-top-nav .ui.page.grid{
+		padding:0;
+	}
+
+	.teabag-top-nav .mobile.tablet.row{
+		margin-top:0;
+		padding-top:0;
+	}
+
+	.teabag-masthead{
+		padding-bottom: 30px;
+	}
+
+	.teabag-masthead .teabag-site-header .teabag-huge {
+		font-size: 2em;
+	}
+
+	.teabag-area.tag{
+		display:none;
+	}
+
+	.teabag-content{
+		margin-top: 10px;
+	}
+	
+	.teabag-content .teabag-post-header h2{
+		margin-top:10px;
+	}
+
+	.teabag-post-header h2 a{
+		font-size:1.3rem;
+	}
+
+	.teabag-content .teabag-post h2{
+		margin-top: 10px;
+	}
+
+	.teabag-site-footer section{
+		font-size: 1em;
+	}
+}
+
+@media screen and (max-width: 600px){
+	
+}
+
+/* Mobile */
+@media screen and (max-width:480px){
+	.teabag-site-footer section{
+		font-size: 0.6em;
+	}
+}
+
+
