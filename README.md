@@ -1,7 +1,17 @@
-# Casper
+# Teabag-theme
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/).
+[Semantic-UI](http://semantic-ui.com/)가 적용된 [Ghost](http://github.com/tryghost/ghost/)를 위한 테마 입니다. 반응형 웹으로 만들어졌으며 [Disqus](https://disqus.com/) 댓글 기능을 지원합니다.
 
+###Disqus 댓글 기능 사용하기
+
+/partials/comment.hbs 파일의 **8번째** 줄의 *disqus_shortname* 변수를 자신이 생성한 Disqus의 shortname을 적으면 됩니다.
+
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'YOUR NAME'; // required: replace example with your forum shortname
+
+
+
+  
 ## Copyright & License
 
 Copyright (c) 2013-2014 Ghost Foundation - Released under the MIT License.
